@@ -101,6 +101,12 @@ function clarion_language_definition() {
   };
   
   
+  const CURRENCY_IN_PICTURE = {
+    className: 'constant.numeric.clarion',
+    begin: '@[Nn][\\-]?[0-9\\.]*\\~',  // Regex pattern for currency-like numeric constants
+    end: '\\~',
+    relevance: 10
+  };
   
   
   const PREPROCESSOR_DIRECTIVES = {
@@ -164,7 +170,8 @@ const CLARION_DEFAULT_CONTAINS = [
   LABELS,
   PREPROCESSOR_DIRECTIVES,   // Added for preprocessor directives
   CONSTANTS,                 // Added for constants
-  PUNCTUATION                // Added for punctuation
+  PUNCTUATION,               // Added for punctuation
+  CURRENCY_IN_PICTURE        // Added for currency in PICTURE
 ];
 
 
