@@ -1,0 +1,7 @@
+{
+  "name": "discourse-highlightjs-clarion",
+  "about_url": "https://github.com/msarson/discourse-highlightjs-clarion",
+  "license_url": "https://github.com/msarson/discourse-highlightjs-clarion/blob/main/LICENSE",
+  "authors": ["Mark Sarson"],
+  "theme_version": "0.1"
+}
