@@ -41,14 +41,6 @@ function clarion_language_definition() {
   };
 
   
-  
-
-  <!-- const VARIABLES = {
-    className: 'variable',
-    begin: '[a-zA-Z_][a-zA-Z0-9_]*:',
-    relevance: 10
-  }; -->
-
   const BASE_TYPES = {
     className: 'type',
     begin: '\\b(?i:ANY|ASTRING|BFLOAT4|BFLOAT8|BLOB|MEMO|BOOL|BSTRING|BYTE|CSTRING|DATE|DECIMAL|DOUBLE|FLOAT4|LONG|LIKE|PDECIMAL|PSTRING|REAL|SHORT|SIGNED|SREAL|STRING|TIME|ULONG|UNSIGNED|USHORT|VARIANT)\\b',
@@ -161,7 +153,6 @@ const CLARION_DEFAULT_CONTAINS = [
   NUMERIC_LITERALS,
   LANG_FUNCTIONS,
   FUNCTIONS_AND_PROCEDURES,
-  <!-- VARIABLES, -->
   BASE_TYPES,
   SPECIAL_TYPES,
   ATTRIBUTES,
