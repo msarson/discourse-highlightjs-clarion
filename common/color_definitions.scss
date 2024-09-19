@@ -1,0 +1,14 @@
+:root {
+  --clarion-keyword-hard: #{dark-light-choose(unquote("#569CD6"), unquote("#ccc"))};
+  --clarion-keyword-soft: #{dark-light-choose(unquote("#9CDCFE"), unquote("#ccc"))};
+  --clarion-function: #{dark-light-choose(unquote("#DCDCAA"), unquote("#b1a0f8"))};
+  --clarion-implicit: #{dark-light-choose(unquote("#C586C0"), unquote("#ff8080"))};
+  --clarion-comment: #{dark-light-choose(unquote("#6A9955"), unquote("#aa7"))};
+  --clarion-string: #{dark-light-choose(unquote("#CE9178"), unquote("#2e5"))};
+  --clarion-class-name: #{dark-light-choose(unquote("#4EC9B0"), unquote("#68f"))};
+  --clarion-type: #{dark-light-choose(unquote("#4EC9B0"), unquote("#68f"))};
+  --clarion-attribute: #{dark-light-choose(unquote("#D4D4D4"), unquote("#ccc"))};
+  --clarion-operator: #{dark-light-choose(unquote("#D4D4D4"), unquote("#ccc"))};
+  --clarion-label: #{dark-light-choose(unquote("#D7BA7D"), unquote("#ffdb50"))};
+  --clarion-class-label: #{dark-light-choose(unquote("#4EC9B0"), unquote("#68f"))};
+}

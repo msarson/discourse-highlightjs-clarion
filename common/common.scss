@@ -1,79 +1,30 @@
-/* Style for hard reserved keywords */
-.hljs-keyword-hard {
-  color: #569CD6;        /* Light blue for keywords */
-  font-weight: bold;  
-}
+/* Base Clarion Highlighting styles */
+:root {
+  .lang-clarion .hljs-keyword-hard { color: var(--clarion-keyword-hard); font-weight: bold; }
+  .lang-clarion .hljs-keyword-soft { color: var(--clarion-keyword-soft); font-style: italic; }
+  .lang-clarion .hljs-keyword-function { color: var(--clarion-function); font-style: italic; }
+  .lang-clarion .hljs-keyword-implicit { color: var(--clarion-implicit); }
+  .lang-clarion .hljs-comment { color: var(--clarion-comment); font-style: italic; }
+  .lang-clarion .hljs-string { color: var(--clarion-string); }
+  .lang-clarion .hljs-class-name { color: var(--clarion-class-name); font-weight: bold; }
+  .lang-clarion .hljs-type { color: var(--clarion-type); font-style: italic; }
+  .lang-clarion .hljs-attribute { color: var(--clarion-attribute); font-style: italic; }
+  .lang-clarion .hljs-operator { color: var(--clarion-operator); }
+  .lang-clarion .hljs-label { color: var(--clarion-label); font-weight: bold; }
+  .lang-clarion .hljs-function { color: var(--clarion-function); font-weight: bold; }
+  .lang-clarion .hljs-class-label { color: var(--clarion-class-label); font-weight: bold; }
 
-/* Style for soft reserved keywords */
-.hljs-keyword-soft {
-  color: #9CDCFE;        /* Lighter blue for soft keywords */
-  font-style: italic;    
-}
-
-/* Style for functions */
-.hljs-keyword-function {
-  color: #DCDCAA;        /* Soft yellow for function names */
-  font-style: italic;
-}
-
-/* Style for implicit keywords */
-.hljs-keyword-implicit {
-  color: #C586C0;        /* Light purple for implicit keywords */
-}
-
-/* Style for comments */
-.hljs-comment {
-  color: #6A9955;        /* Muted green for comments */
-  font-style: italic;    
-}
-
-/* Style for strings */
-.hljs-string {
-  color: #CE9178;        /* Light brown/orange for string literals */
-}
-
-/* Style for class names */
-.hljs-class-name {
-  color: #4EC9B0;        /* Aqua for class names */
-  font-weight: bold;
-}
-
-/* Style for inherited classes */
-.hljs-inherited-class {
-  color: #9CDCFE;        /* Light blue for inherited classes */
-}
-
-/* Style for types (base or special types) */
-.hljs-type {
-  color: #4EC9B0;        /* Aqua for base and special types */
-  font-style: italic;
-}
-
-/* Style for attributes */
-.hljs-attribute {
-  color: #D4D4D4;        /* Light gray for attributes */
-  font-style: italic;
-}
-
-/* Style for operators */
-.hljs-operator {
-  color: #D4D4D4;        /* Light gray for operators (same as default text) */
-}
-
-/* Style for labels */
-.hljs-label {
-  color: #D7BA7D;        /* Light orange-brown for labels, matching VS Code style */
-  font-weight: bold;
-}
-
-/* Style for functions */
-.hljs-function {
-  color: #569cd6;        /* Soft yellow for function names */
-  font-weight: bold;
-}
-
-/* Style for class labels */
-.hljs-class-label {
-  color: #4EC9B0;  /* Greenish aqua for class labels (similar to VS Code) */
-  font-weight: bold;
+  @media (prefers-color-scheme: dark) {
+    .lang-clarion .hljs-keyword-hard { color: var(--clarion-keyword-hard-dark); }
+    .lang-clarion .hljs-keyword-soft { color: var(--clarion-keyword-soft-dark); }
+    .lang-clarion .hljs-comment { color: var(--clarion-comment-dark); }
+    .lang-clarion .hljs-string { color: var(--clarion-string-dark); }
+    .lang-clarion .hljs-class-name { color: var(--clarion-class-name-dark); }
+    .lang-clarion .hljs-type { color: var(--clarion-type-dark); }
+    .lang-clarion .hljs-attribute { color: var(--clarion-attribute-dark); }
+    .lang-clarion .hljs-operator { color: var(--clarion-operator-dark); }
+    .lang-clarion .hljs-label { color: var(--clarion-label-dark); }
+    .lang-clarion .hljs-function { color: var(--clarion-function-dark); }
+    .lang-clarion .hljs-class-label { color: var(--clarion-class-label-dark); }
+  }
 }
