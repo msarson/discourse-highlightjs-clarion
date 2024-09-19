@@ -18,18 +18,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Extract function to dev folder
-        run: |
-          sed -n '/function clarion_language_definition/,/}/p' common/head_tag.html > dev/common/clarion-language.js
+      - name: Create dev/common folder
+        run: mkdir -p dev/common
 
-      - name: Compile SCSS
-        run: npm run compile-scss
+      - name: Extract function to dev/common folder
+        run: sed -n '/function clarion_language_definition/,/}/p' common/head_tag.html > dev/common/clarion-language.js
 
-            - name: Commit and push changes
+      - name: Commit and push changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "GitHub Actions"
-          git add dev/common/clarion-language.js dist/styles.css
-          git commit -m "Automated extraction and SCSS compilation"
+          git add dev/common/clarion-language.js
+          git commit -m "Automated extraction"
           git push "https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/msarson/discourse-highlightjs-clarion.git" HEAD:main
-
