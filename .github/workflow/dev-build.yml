@@ -1,0 +1,35 @@
+name: Build and Deploy Dev Environment
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Extract function to dev folder
+        run: |
+          sed -n '/function clarion_language_definition/,/}/p' common/head_tag.html > dev/common/clarion-language.js
+
+      - name: Compile SCSS
+        run: npm run compile-scss
+
+            - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "GitHub Actions"
+          git add dev/common/clarion-language.js dist/styles.css
+          git commit -m "Automated extraction and SCSS compilation"
+          git push "https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/msarson/discourse-highlightjs-clarion.git" HEAD:main
+
