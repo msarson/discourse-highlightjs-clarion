@@ -145,7 +145,7 @@ function clarion_language_definition() {
   
   const LABELS = {
     className: 'label',
-    begin: '^[A-Za-z_][A-Za-z0-9_]*(:[A-Za-z0-9_]+)?',  // Match labels that may have a colon, followed by more valid characters
+    begin: '^[A-Za-z_][A-Za-z0-9_]*(?::[A-Za-z0-9_]+)?',  // Match labels with optional colon and valid characters after it
     end: '(?=\\s)',  // Ensure it stops at a space
     relevance: 10
   };
