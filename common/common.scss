@@ -1,31 +1,61 @@
-:root {
-  --clarion-keyword-hard: #569CD6;
-  --clarion-keyword-soft: #9CDCFE;
-  --clarion-function: #DCDCAA;
-  --clarion-implicit: #C586C0;
-  --clarion-comment: #6A9955;
-  --clarion-string: #CE9178;
-  --clarion-class-name: #4EC9B0;
-  --clarion-type: #4EC9B0;
-  --clarion-attribute: #D4D4D4;
-  --clarion-operator: #D4D4D4;
-  --clarion-label: #D7BA7D;
-  --clarion-class-label: #4EC9B0;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --clarion-keyword-hard: #ccc;
-    --clarion-keyword-soft: #ccc;
-    --clarion-function: #b1a0f8;
-    --clarion-implicit: #ff8080;
-    --clarion-comment: #aa7;
-    --clarion-string: #2e5;
-    --clarion-class-name: #68f;
-    --clarion-type: #68f;
-    --clarion-attribute: #ccc;
-    --clarion-operator: #ccc;
-    --clarion-label: #ffdb50;
-    --clarion-class-label: #68f;
+  .lang-clarion .hljs-keyword-hard {
+    color: var(--clarion-keyword-hard);
+    font-weight: bold;
   }
-}
+
+  .lang-clarion .hljs-keyword-soft {
+    color: var(--clarion-keyword-soft);
+    font-style: italic;
+  }
+
+  .lang-clarion .hljs-keyword-function {
+    color: var(--clarion-function);
+    font-style: italic;
+  }
+
+  .lang-clarion .hljs-keyword-implicit {
+    color: var(--clarion-implicit);
+  }
+
+  .lang-clarion .hljs-comment {
+    color: var(--clarion-comment);
+    font-style: italic;
+  }
+
+  .lang-clarion .hljs-string {
+    color: var(--clarion-string);
+  }
+
+  .lang-clarion .hljs-class-name {
+    color: var(--clarion-class-name);
+    font-weight: bold;
+  }
+
+  .lang-clarion .hljs-type {
+    color: var(--clarion-type);
+    font-style: italic;
+  }
+
+  .lang-clarion .hljs-attribute {
+    color: var(--clarion-attribute);
+    font-style: italic;
+  }
+
+  .lang-clarion .hljs-operator {
+    color: var(--clarion-operator);
+  }
+
+  .lang-clarion .hljs-label {
+    color: var(--clarion-label);
+    font-weight: bold;
+  }
+
+  .lang-clarion .hljs-function {
+    color: var(--clarion-function);
+    font-weight: bold;
+  }
+
+  .lang-clarion .hljs-class-label {
+    color: var(--clarion-class-label);
+    font-weight: bold;
+  }
