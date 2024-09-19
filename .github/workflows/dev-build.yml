@@ -22,7 +22,8 @@ jobs:
         run: mkdir -p dev/common
 
       - name: Extract function to dev/common folder
-        run: sed -n '/function clarion_language_definition/,/}/p' common/head_tag.html > dev/common/clarion-language.js
+        run: |
+          sed -n '/function clarion_language_definition/,/}/p' common/head_tag.html > dev/common/clarion-language.js
 
       - name: Commit and push changes
         run: |
