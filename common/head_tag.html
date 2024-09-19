@@ -69,9 +69,10 @@ function clarion_language_definition() {
 
   const OPERATORS = {
     className: 'operator',
-    begin: '(\\+|\\-|\\*|\\/|=|<>|<=|>=)',
+    begin: '(\\+|\\-|\\*|\\/|=|<>|<=|>=|~=|%|\\+=|\\-=|\\*=|\\\\=|:=:|~>|~<|\\^)',
     relevance: 5
   };
+  
 
   const DIRECTIVES = {
     className: 'meta',
@@ -93,9 +94,22 @@ function clarion_language_definition() {
 
   const CONSTANTS = {
     className: 'constant',
-    begin: '\\b0[xX][0-9a-fA-F]+\\b',  // Hexadecimal literals
+    variants: [
+      {
+        begin: '0[xX][0-9a-fA-F]+[hH]?'  // Match hexadecimal literals ending with h or H
+      },
+      {
+        begin: '[01]+[bB]'  // Match binary literals ending with b or B
+      },
+      {
+        begin: '[0-7]+[oO]'  // Match octal literals ending with o or O
+      }
+    ],
     relevance: 0
   };
+  
+  
+  
   
   const PREPROCESSOR_DIRECTIVES = {
     className: 'preprocessor',
@@ -131,10 +145,11 @@ function clarion_language_definition() {
   
   const LABELS = {
     className: 'label',
-    begin: '^[A-Za-z_][A-Za-z0-9_]*',  // Match labels starting at column 1
+    begin: '^[A-Za-z_][A-Za-z0-9_]*(:[A-Za-z0-9_]+)?',  // Match labels that may have a colon, followed by more valid characters
     end: '(?=\\s)',  // Ensure it stops at a space
     relevance: 10
   };
+  
   
   
 
