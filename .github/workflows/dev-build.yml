@@ -10,10 +10,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Debug Git Status
+        run: |
+          git status
+          git remote -v
+      
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '16'  # You can change this to '20' if needed
 
       - name: Install dependencies
         run: npm install
