@@ -59,3 +59,9 @@
     color: var(--clarion-class-label);
     font-weight: bold;
   }
+
+  .lang-clarion .hljs-picture-numeric-format {
+    color: var(--clarion-numeric-format);
+    font-weight: bold;  /* Make numeric formats stand out */
+  }
+  

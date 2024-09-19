@@ -11,5 +11,6 @@
     --clarion-operator: #{dark-light-choose(unquote("#333333"), unquote("#D4D4D4"))};  /* Dark gray for operators */
     --clarion-label: #{dark-light-choose(unquote("#795E26"), unquote("#D7BA7D"))};  /* Brownish for labels */
     --clarion-class-label: #{dark-light-choose(unquote("#2B91AF"), unquote("#4EC9B0"))};  /* Aqua for class labels */
+    --clarion-pciture-numeric-format: #{dark-light-choose(unquote("#FF4500"), unquote("#FFA500"))};
   }
   
