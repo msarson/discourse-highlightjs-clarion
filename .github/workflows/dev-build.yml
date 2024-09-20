@@ -5,18 +5,21 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
-# test
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3  # Updated to v3
+        uses: actions/checkout@v3
 
-      - name: Debug Git Status
+      - name: Debug Git Status and Remote
         run: |
           git status
           git remote -v
-      
+          ls -la
+          pwd  # Print working directory for clarity
+          echo ${{ secrets.PAT_TOKEN }}
+
       - name: Set up Node.js
-        uses: actions/setup-node@v3  # Updated to v3
+        uses: actions/setup-node@v3
         with:
           node-version: '20'
 
@@ -30,10 +33,11 @@ jobs:
         run: |
           sed -n '/function clarion_language_definition/,/}/p' common/head_tag.html > dev/common/clarion-language.js
 
-      - name: Commit and push changes
+      - name: Commit and push changes with Debugging
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "GitHub Actions"
           git add dev/common/clarion-language.js
           git commit -m "Automated extraction"
-          git push "https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/msarson/discourse-highlightjs-clarion.git" HEAD:main
+          git push "https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/msarson/discourse-highlightjs-clarion.git" HEAD:master
+        continue-on-error: true  # Prevent immediate failure, see what happens
