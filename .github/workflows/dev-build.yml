@@ -58,6 +58,12 @@ jobs:
           rm dev/common/common.scss
           rm dev/common/color_definitions.scss
 
+      # Generate light and dark mode colors
+      - name: Generate Color Variables
+        run: |
+          node dev/generate-colors.js
+
+
       - name: Commit and push changes with Debugging
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
