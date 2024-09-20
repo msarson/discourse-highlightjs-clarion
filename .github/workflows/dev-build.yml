@@ -48,6 +48,11 @@ jobs:
       - name: Verify generated colors file
         run: ls -la dev/common/generated-colors.scss
 
+      # Show contents of generated-colors.scss
+      - name: Show contents of generated-colors.scss
+        run: cat dev/common/generated-colors.scss
+
+
       # Add import to common.scss
       - name: Modify SCSS files
         run: |
