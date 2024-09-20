@@ -32,14 +32,21 @@ jobs:
           cp common/common.scss dev/common/common.scss
           cp common/color_definitions.scss dev/common/color_definitions.scss
 
+      - name: Verify contents of common.scss
+        run: cat dev/common/common.scss
+
       # List dev/common to verify the files were copied
       - name: List dev/common folder contents
         run: ls -la dev/common
+
 
       # Add import to common.scss
       - name: Modify SCSS files
         run: echo '@import "color_definitions.scss";' | cat - dev/common/common.scss > temp && mv temp dev/common/common.scss
 
+      - name: Verify contents of common.scss after modification
+        run: cat dev/common/common.scss 
+        
       # Compile SCSS
       - name: Compile SCSS
         working-directory: dev
