@@ -39,6 +39,11 @@ jobs:
       - name: List dev/common folder contents
         run: ls -la dev/common
 
+      # Generate light and dark mode colors
+      - name: Generate Color Variables
+        run: |
+          node dev/generate-colors.js
+
 
       # Add import to common.scss
       - name: Modify SCSS files
@@ -59,11 +64,7 @@ jobs:
           rm dev/common/color_definitions.scss
           rm dev/common/generated-colors.scss
 
-      # Generate light and dark mode colors
-      - name: Generate Color Variables
-        run: |
-          node dev/generate-colors.js
-
+      
 
       - name: Commit and push changes with Debugging
         run: |
