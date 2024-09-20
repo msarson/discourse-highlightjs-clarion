@@ -35,6 +35,10 @@ jobs:
         run: |
           sed -n '/function clarion_language_definition/,/}/p' common/head_tag.html > dev/common/clarion-language.js
 
+      - name: List dev/common folder contents
+        run: ls -la dev/common
+     
+
       - name: Commit and push changes with Debugging
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
