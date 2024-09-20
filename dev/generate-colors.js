@@ -10,14 +10,16 @@ fs.readFile(inputFilePath, 'utf8', (err, data) => {
         return;
     }
 
-    // Regular expression to match the dark-light-choose lines
-    const regex = /--([^:]+):\s*#{dark-light-choose\(([^,]+),\s*([^)]+)\)};/g;
+    console.log('Contents of color_definitions.scss:', data); // Log the contents
 
+    // Updated regular expression to match the dark-light-choose lines with interpolation
+    const regex = /--([^:]+):\s*#\{dark-light-choose\(unquote\("([^"]+)"\),\s*unquote\("([^"]+)"\)\)\};/g;
     let output = ':root {\n';
 
     // Replace and create separate light and dark variables
     let match;
     while ((match = regex.exec(data)) !== null) {
+        console.log('Matched:', match); // Log matched results
         const variableName = match[1].trim();
         const lightColor = match[2].trim();
         const darkColor = match[3].trim();
