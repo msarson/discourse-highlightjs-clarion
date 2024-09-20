@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Dev environment for testing Clarion highlighter and compiling SCSS",
   "scripts": {
-    "build-scss": "sass ../common/common.scss:../dev/common/styles.css"
+    "build-scss": "sass dev/common/common.scss:dev/common/styles.css"
   },
   "dependencies": {
     "highlight.js": "^11.6.0",

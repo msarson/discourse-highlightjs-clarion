@@ -38,15 +38,22 @@ jobs:
         run: |
           sed -n '/function clarion_language_definition/,/api\.registerHighlightJSLanguage/p' common/head_tag.html | sed '$d' > dev/common/clarion-language.js
 
-      - name: List dev/common folder contents
-        run: ls -la dev/common
+      - name: Copy SCSS files to dev
+        run: |
+          cp common/common.scss dev/common/common.scss
+          cp common/color_definitions.scss dev/common/color_definitions.scss
 
-      - name: List common folder contents
-        run: ls -la common
-     
+      - name: Modify SCSS files
+        run: echo '@import "color_definitions.scss";' | cat - dev/common/common.scss > temp && mv temp dev/common/common.scss
+
       - name: Compile SCSS
         working-directory: dev
         run: npm run build-scss  
+
+      - name: Clean up SCSS files
+        run: |
+          rm dev/common/common.scss
+          rm dev/common/color_definitions.scss
 
       - name: Commit and push changes with Debugging
         run: |
