@@ -52,7 +52,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "GitHub Actions"
-          git add dev/common/clarion-language.js
-          git commit -m "Automated extraction"
+          git add -A  # Stages all new, modified, and deleted files
+          git commit -m "Automated extraction and SCSS compilation"
           git push "https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/msarson/discourse-highlightjs-clarion.git" HEAD:master
         continue-on-error: true  # Prevent immediate failure, see what happens
