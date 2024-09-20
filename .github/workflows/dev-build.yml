@@ -10,46 +10,42 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Debug Git Status and Remote
-        run: |
-          git status
-          git remote -v
-          ls -la
-          pwd  # Print working directory for clarity
-          echo ${{ secrets.PAT_TOKEN }}
-
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
       - name: Install Sass globally
-        run: npm install -g sass    
+        run: npm install -g sass
 
       - name: Install dependencies in dev folder
         working-directory: dev
         run: npm install
-  
 
+      # Create dev/common folder to ensure it exists
       - name: Create dev/common folder
         run: mkdir -p dev/common
 
-      - name: Extract function to dev/common folder
-        run: |
-          sed -n '/function clarion_language_definition/,/api\.registerHighlightJSLanguage/p' common/head_tag.html | sed '$d' > dev/common/clarion-language.js
-
+      # Copy SCSS files to dev/common
       - name: Copy SCSS files to dev
         run: |
           cp common/common.scss dev/common/common.scss
           cp common/color_definitions.scss dev/common/color_definitions.scss
 
+      # List dev/common to verify the files were copied
+      - name: List dev/common folder contents
+        run: ls -la dev/common
+
+      # Add import to common.scss
       - name: Modify SCSS files
         run: echo '@import "color_definitions.scss";' | cat - dev/common/common.scss > temp && mv temp dev/common/common.scss
 
+      # Compile SCSS
       - name: Compile SCSS
         working-directory: dev
         run: npm run build-scss  
 
+      # Clean up SCSS files
       - name: Clean up SCSS files
         run: |
           rm dev/common/common.scss
