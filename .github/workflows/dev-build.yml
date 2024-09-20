@@ -45,7 +45,6 @@ jobs:
         run: ls -la common
      
       - name: Compile SCSS
-        working-directory: dev
         run: npm run build-scss  
 
       - name: Commit and push changes with Debugging
