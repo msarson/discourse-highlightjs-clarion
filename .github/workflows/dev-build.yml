@@ -25,7 +25,7 @@ jobs:
 
       - name: Install Sass globally
         run: npm install -g sass    
-        
+
       - name: Install dependencies in dev folder
         working-directory: dev
         run: npm install
@@ -40,6 +40,9 @@ jobs:
 
       - name: List dev/common folder contents
         run: ls -la dev/common
+
+      - name: List common folder contents
+        run: ls -la common
      
       - name: Compile SCSS
         working-directory: dev
