@@ -190,6 +190,3 @@ const CLARION_DEFAULT_CONTAINS = [
 }
 
 // Register Clarion language with Discourse's HighlightJS
-api.registerHighlightJSLanguage("clarion", clarion_language_definition);
-
-</script>
