@@ -42,11 +42,11 @@ jobs:
 
       # Add import to common.scss
       - name: Modify SCSS files
-        run: echo '@import "color_definitions.scss";' | cat - dev/common/common.scss > temp && mv temp dev/common/common.scss
+        run: echo '@import "./color_definitions.scss";' | cat - dev/common/common.scss > temp && mv temp dev/common/common.scss
 
       - name: Verify contents of common.scss after modification
         run: cat dev/common/common.scss 
-        
+
       # Compile SCSS
       - name: Compile SCSS
         working-directory: dev
