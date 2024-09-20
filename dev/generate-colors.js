@@ -11,7 +11,8 @@ fs.readFile(inputFilePath, 'utf8', (err, data) => {
     }
 
     // Regular expression to match the dark-light-choose lines
-    const regex = /--([^:]+):\s*dark-light-choose\((#[0-9A-Fa-f]{6}|[A-Za-z]+),\s*(#[0-9A-Fa-f]{6}|[A-Za-z]+)\);/g;
+    const regex = /--([^:]+):\s*#{dark-light-choose\(([^,]+),\s*([^)]+)\)};/g;
+
     let output = ':root {\n';
 
     // Replace and create separate light and dark variables
