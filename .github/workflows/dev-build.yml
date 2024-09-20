@@ -42,7 +42,7 @@ jobs:
 
       # Add import to common.scss
       - name: Modify SCSS files
-        run: echo '@import "./color_definitions.scss";' | cat - dev/common/common.scss > temp && mv temp dev/common/common.scss
+        run: echo '@import "./generated-colors.scss";' | cat - dev/common/common.scss > temp && mv temp dev/common/common.scss
 
       - name: Verify contents of common.scss after modification
         run: cat dev/common/common.scss 
@@ -57,6 +57,7 @@ jobs:
         run: |
           rm dev/common/common.scss
           rm dev/common/color_definitions.scss
+          rm dev/common/generated-colors.scss
 
       # Generate light and dark mode colors
       - name: Generate Color Variables

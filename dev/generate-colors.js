@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 // Define your input and output files
-const inputFilePath = 'dev/common/common.scss'; // Adjust this path as needed
+const inputFilePath = 'dev/common/color_definition.scss'; // Adjust this path as needed
 const outputFilePath = 'dev/common/generated-colors.scss';
 
 fs.readFile(inputFilePath, 'utf8', (err, data) => {
