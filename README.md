@@ -12,8 +12,25 @@ To install this theme component, do the following:
 
 ## Features
 
-- Clarion syntax highlighting for reserved keywords, functions, variables, and more.
-- Custom styles inspired by Visual Studio Code.
+### Clarion syntax highlighting
+
+Use a ` ```clarion ` (or ` ```Clarion ` / ` ```CLARION `) code fence for full syntax highlighting of Clarion source code. Colours are inspired by Visual Studio Code and adapt automatically to Discourse's light and dark themes.
+
+### Grid renderer
+
+Use a ` ```grid ` fence to render pipe-separated data as a formatted table. The first row becomes the header.
+
+````
+```grid
+Product|Version|Released|Status
+Clarion 11|11.1|2021-03-15|Current
+Clarion 10|10.0|2018-06-01|Legacy
+```
+````
+
+- Leading and trailing `|` on a row are optional and ignored
+- Empty cells are fine — just leave nothing between pipes
+- On narrow screens the table scrolls horizontally
 
 ## License
 
