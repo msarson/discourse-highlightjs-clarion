@@ -128,4 +128,63 @@ export default apiInitializer("0.13", (api) => {
     }
 
     api.registerHighlightJSLanguage("clarion", clarion_language_definition);
+
+    api.decorateCookedElement(
+        (element) => {
+            element.querySelectorAll("code").forEach((codeEl) => {
+                if (![...codeEl.classList].some(c => /^lang-grid\d*$/.test(c))) {
+                    return;
+                }
+
+                const preEl = codeEl.parentElement;
+                if (!preEl || preEl.tagName !== "PRE") return;
+
+                const lines = codeEl.textContent
+                    .trim()
+                    .split("\n")
+                    .filter(l => l.trim());
+                if (lines.length === 0) return;
+
+                const rows = lines.map(line =>
+                    line.trim().replace(/^\|/, "").replace(/\|$/, "").split("|").map(c => c.trim())
+                );
+
+                const colCount = rows[0].length;
+                const table = document.createElement("table");
+                table.className = "clarion-grid";
+
+                const thead = document.createElement("thead");
+                const headerRow = document.createElement("tr");
+                rows[0].forEach(cell => {
+                    const th = document.createElement("th");
+                    th.textContent = cell;
+                    headerRow.appendChild(th);
+                });
+                thead.appendChild(headerRow);
+                table.appendChild(thead);
+
+                if (rows.length > 1) {
+                    const tbody = document.createElement("tbody");
+                    rows.slice(1).forEach(rowData => {
+                        const tr = document.createElement("tr");
+                        const cells = rowData.slice(0, colCount);
+                        while (cells.length < colCount) cells.push("");
+                        cells.forEach(cell => {
+                            const td = document.createElement("td");
+                            td.textContent = cell;
+                            tr.appendChild(td);
+                        });
+                        tbody.appendChild(tr);
+                    });
+                    table.appendChild(tbody);
+                }
+
+                const wrapper = document.createElement("div");
+                wrapper.className = "clarion-grid-wrapper";
+                wrapper.appendChild(table);
+                preEl.replaceWith(wrapper);
+            });
+        },
+        { id: "clarion-grid-decorator" }
+    );
 });

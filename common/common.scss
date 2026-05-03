@@ -1,3 +1,37 @@
+/* Grid renderer — ```grid or ```grid6 fences */
+.clarion-grid-wrapper {
+  overflow-x: auto;
+  /* Scroll-hint shadow: fades in once content overflows */
+  background:
+    linear-gradient(to right, var(--secondary) 30%, transparent) left / 20px 100% no-repeat,
+    linear-gradient(to left,  var(--secondary) 30%, transparent) right / 20px 100% no-repeat,
+    linear-gradient(to right, rgba(0, 0, 0, 0.12), transparent) left / 10px 100% no-repeat,
+    linear-gradient(to left,  rgba(0, 0, 0, 0.12), transparent) right / 10px 100% no-repeat;
+  background-attachment: local, local, scroll, scroll;
+}
+
+.clarion-grid {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9em;
+
+  th, td {
+    border: 1px solid var(--primary-low);
+    padding: 6px 12px;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  thead th {
+    background-color: var(--primary-low);
+    font-weight: bold;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: var(--primary-very-low);
+  }
+}
+
 /* Support lowercase, capitalised, and uppercase Clarion language fences */
 .lang-clarion {
 
