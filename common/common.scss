@@ -100,4 +100,15 @@
     color: var(--clarion-picture-numeric-format);
     font-weight: bold;
   }
+
+  /* Compiler directives, compile flags and template symbols */
+  .hljs-meta {
+    color: var(--clarion-meta);
+  }
+
+  /* Embedded code point inside a Unicode literal: U'<1F4A9h>' */
+  .hljs-unicode-escape {
+    color: var(--clarion-unicode-escape);
+    font-weight: bold;
+  }
 }
