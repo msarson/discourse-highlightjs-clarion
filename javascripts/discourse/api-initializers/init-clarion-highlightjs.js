@@ -83,9 +83,14 @@ export default apiInitializer("0.13", (api) => {
 
         // UCHR(code) is the one-argument form of CHR(code,1);
         // UVAL() is its inverse — the code point at a unit position.
+        // TOANSI/TOUNICODE convert between encodings, with an optional codepage.
+        // All four are declared in libsrc\win\builtins.clw on 12.0.14204:
+        //   TOANSI(STRING expr, UNSIGNED cp=-1),STRING,NAME('Cla$StackTOANSI')
+        //   TOUNICODE(STRING expr, UNSIGNED cp=-1),STRING,NAME('Cla$StackTOUNICODE')
+        //   UVAL(STRING str, UNSIGNED pos=1),LONG,NAME('Cla$StackUVAL')
         const UNICODE_FUNCTIONS = {
             className: 'function',
-            begin: '\\b(?i:UCHR|UVAL)\\b'
+            begin: '\\b(?i:UCHR|UVAL|TOANSI|TOUNICODE)\\b'
         };
 
         // --- End Unicode beta blocks ---------------------------------------
